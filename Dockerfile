@@ -8,6 +8,7 @@ RUN npm install --unsafe-perm
 FROM node:8.11-slim
 MAINTAINER "Manojvv" "manojv@ilimi.in"
 RUN apt update
+RUN cat /etc/apt/sources.list
 RUN sed -i '/jessie-updates/d' /etc/apt/sources.list \
     && apt update \
     && apt-get clean \
