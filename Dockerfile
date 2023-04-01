@@ -10,6 +10,7 @@ MAINTAINER "Manojvv" "manojv@ilimi.in"
 
 RUN sed -i '/jessie-updates/d' /etc/apt/sources.list \
     && echo "deb http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list \
+    && echo "deb http://archive.debian.org/debian jessie main" >> /etc/apt/sources.list \
     && apt-get -o Acquire::Check-Valid-Until=false update \
     && apt update \
     && apt-get clean \
