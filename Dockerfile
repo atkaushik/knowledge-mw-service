@@ -4,11 +4,13 @@ USER root
 COPY src /opt/content/
 WORKDIR /opt/content/
 RUN npm install --unsafe-perm
+RUN rm /etc/apt/sources.list
 
 FROM node:8.11-slim
 MAINTAINER "Manojvv" "manojv@ilimi.in"
-RUN cat /etc/apt/sources.list
+
 RUN apt update
+RUN rm /etc/apt/sources.list
 RUN sed -i '/jessie-updates/d' /etc/apt/sources.list \
     && apt update \
     && apt-get clean \
